@@ -4,7 +4,6 @@ web-msg-sender windows 版本。
 
 Web消息实时推送，支持在线用户数实时统计。基于[PHPSocket.IO](https://github.com/walkor/phpsocket.io)开发，使用websocket推送数据，当浏览器不支持websocket时自动切换comet推送数据。
 
-注意：服务端只支持在linux系统上运行  
 
 效果截图
 ======
