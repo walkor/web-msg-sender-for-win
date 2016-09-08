@@ -60,6 +60,7 @@ $sender_io->on('workerStart', function(){
     $inner_http_worker = new Worker('http://0.0.0.0:2121');
     // 当http客户端发来数据时触发
     $inner_http_worker->onMessage = function($http_connection, $data){
+        global $uidConnectionMap;
         $_POST = $_POST ? $_POST : $_GET;
         // 推送数据的url格式 type=publish&to=uid&content=xxxx
         switch(@$_POST['type']){
@@ -72,10 +73,14 @@ $sender_io->on('workerStart', function(){
                     $sender_io->to($to)->emit('new_msg', $_POST['content']);
                 // 否则向所有uid推送数据
                 }else{
-                    $sender_io->emit('new_msg', $_POST['content']);
+                    $sender_io->emit('new_msg', @$_POST['content']);
                 }
-                // http接口返回ok
-                return $http_connection->send('ok');
+                // http接口返回，如果用户离线socket返回fail
+                if($to && !isset($uidConnectionMap[$to])){
+                    return $http_connection->send('offline');
+                }else{
+                    return $http_connection->send('ok');
+                }
         }
         return $http_connection->send('fail');
     };
