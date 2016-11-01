@@ -1,0 +1,11 @@
+{
+    "name"  : "workerman/web-msg-sender-for-win",
+    "homepage": "http://www.workerman.net",
+    "license" : "MIT",
+    "require": {
+        "workerman/phpsocket.io-for-win" : ">=1.0.0"
+    },
+    "autoload": {
+        "psr-4": {"GatewayWorker\\": "./src"}
+    }
+}
