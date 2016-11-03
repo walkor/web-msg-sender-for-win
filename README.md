@@ -19,6 +19,12 @@ content 为消息内容
 
 注：可以通过php或者其它语言的curl功能实现后台推送
 
+安装
+====
+下载 或者 clone 代码到本地
+
+进入到代码目录，运行 ```composer install``` 安装
+
 后端服务启动停止
 ======
 双击start_for_win.bat 启动。
