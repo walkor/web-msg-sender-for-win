@@ -1,3 +1,7 @@
+此项目停止更新
+==============
+**https://github.com/walkor/web-msg-sender 已经支持windows系统，此项目不再维护**
+
 web-msg-sender-for-win
 ==============
 web-msg-sender windows 版本。
